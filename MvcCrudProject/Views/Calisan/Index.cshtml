@@ -1,0 +1,36 @@
+﻿@using MvcCrudProject.Models.Entities
+@model List<Calisan>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a class="btn btn-primary" href="@Url.Action("Ekle", "Calisan")">Çalışan Ekle</a>
+<h2>Çalışan Listesi</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Maaş</th>
+            <th>Departmanı</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var calisan in Model)
+        {
+        <tr>
+            <td>@calisan.Ad</td>
+            <td>@calisan.Soyad</td>
+            <td>@calisan.Maas</td>
+            <td>@calisan.departman.Ad</td>
+            <td><a class="btn btn-primary" href="/Calisan/Guncelle/@calisan.Id">Güncelle</a></td>
+            <td><a class="btn btn-primary" href="/Calisan/Sil/@calisan.Id">Sil</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

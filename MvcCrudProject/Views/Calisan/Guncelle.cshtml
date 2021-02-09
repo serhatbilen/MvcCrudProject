@@ -1,0 +1,24 @@
+﻿@model MvcCrudProject.Models.Entities.Calisan
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Çalışan Kayıt Ekranı</h2>
+
+@using (Html.BeginForm("Guncelle", "Calisan", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Ad)
+        @Html.TextBoxFor(m => m.Ad, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Soyad)
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Maas)
+        @Html.TextBoxFor(m => m.Maas, new { @class = "form-control" })
+        @Html.LabelFor(m => m.departmanId)
+        @Html.TextBoxFor(m => m.departmanId, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Id)
+    <button type="submit" class="btn btn-success">Güncelle</button>
+}
+

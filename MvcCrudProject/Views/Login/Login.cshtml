@@ -1,0 +1,34 @@
+﻿@model MvcCrudProject.Data.Entities.Login
+@{ Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+        <div class="form-group">
+            @Html.LabelFor(m => m.KullaniciAdi)
+            @Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı Adı*" })
+            <b style="color:#ff0000">@Html.ValidationMessageFor(m => m.KullaniciAdi)</b>
+
+</div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Sifre)
+            @Html.PasswordFor(m => m.Sifre, new { @class = "form-control", placeholder = "Şifre*" })
+            <b style="color:#ff0000">@Html.ValidationMessageFor(m => m.Sifre)</b>
+
+        </div>
+            <button type="submit" class="btn btn-block btn-success">Giriş Yap</button> 
+        }
+        @Html.ActionLink("Kayıt Ol", "Kaydet")
+    </div>
+</body>
+</html>

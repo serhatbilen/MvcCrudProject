@@ -1,0 +1,30 @@
+﻿@model MvcCrudProject.Data.Entities.Login
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Kullanıcı Güncelleme Ekranı</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("Guncelle", "Login", FormMethod.Post))
+        {
+<div class="form-group">
+    @Html.ValidationMessageFor(m => m.KullaniciAdi)
+    @Html.LabelFor(m => m.KullaniciAdi)
+    <b style="color:#ff0000">*@Html.TextBoxFor(m => m.KullaniciAdi, new { @class = "form-control", placeholder = "Kullanıcı Adı*" })</b>
+</div>
+                <div class="form-group">
+                    @Html.ValidationMessageFor(m => m.Sifre)
+                    @Html.LabelFor(m => m.Sifre)
+                    <b style="color:#ff0000">*@Html.PasswordFor(m => m.Sifre, new { @class = "form-control", placeholder = "Şifre*" })</b>
+                </div>
+                                @Html.HiddenFor(m => m.Id)
+                                                <button type="submit" class="btn btn-success">Güncelle</button>}
+    </div>
+</body>
+</html>
